@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 public class Carte {
@@ -28,7 +27,7 @@ public class Carte {
         carteBleu, carteJaune, carteViolet, carteLaser
     }
 
-    private static ArrayList<carteCouleur> deck;
+    private static ArrayList<carteCouleur> deck = new ArrayList<carteCouleur> (37);
 
     public static ArrayList<carteCouleur> getDeck(){
         return deck;
@@ -53,7 +52,7 @@ public class Carte {
     }
 
 
-    private static ArrayList<carteCouleur> hand;
+    private static ArrayList<carteCouleur> hand = new ArrayList<carteCouleur> (5);
 
     public static ArrayList<carteCouleur> getHand (){
         System.out.println ("Voici vos cartes : " + hand);
@@ -61,7 +60,7 @@ public class Carte {
     }
 
     public static void setHand(){
-        for (int i = 0; i < cartePioche -1 ;i++){
+        for (int i = 0; i < cartePioche ;i++){
             hand.add(i, deck.get (i));
             deck.remove(i);
         }
