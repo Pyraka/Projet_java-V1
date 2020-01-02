@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="205e04b6-3c2c-4cb7-b92b-d6a654f5729d" name="Default Changelist" comment="" />
+    <list default="true" id="205e04b6-3c2c-4cb7-b92b-d6a654f5729d" name="Default Changelist" comment="Ajoute README et création d'une classe cartes&#10;02/01/2020 : update avec tout ce que J2rémy a fait pendant les vacances. Bug avec l'affichage du deck et l'ajout de cartes dans l'arraylist">
+      <change afterPath="$PROJECT_DIR$/src/Carte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Joueur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Plateau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cartes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Joueurs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -15,10 +38,22 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="V2-Turtle" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
   <component name="ProjectId" id="1U9eCFiIcYctBXiIyPKIbKiBXEc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -43,6 +78,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -58,11 +96,54 @@
       <updated>1574773108443</updated>
       <workItem from="1574773113545" duration="5450000" />
       <workItem from="1574839979773" duration="911000" />
-      <workItem from="1575037297249" duration="609000" />
+      <workItem from="1575037297249" duration="4252000" />
+      <workItem from="1575294814282" duration="85000" />
+      <workItem from="1575295335304" duration="486000" />
+      <workItem from="1575300077835" duration="2367000" />
+      <workItem from="1575964545099" duration="148000" />
+      <workItem from="1576050452421" duration="1970000" />
+      <workItem from="1576319728877" duration="589000" />
+      <workItem from="1576946668034" duration="5575000" />
+      <workItem from="1577063805689" duration="3053000" />
+      <workItem from="1577149680358" duration="5266000" />
+      <workItem from="1577972058846" duration="243000" />
     </task>
+    <task id="LOCAL-00001" summary="Ajoute README et création d'une classe cartes">
+      <created>1575046441162</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575046441162</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Ajoute README et création d'une classe cartes">
+      <created>1575046636637</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575046636637</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ajoute README et création d'une classe cartes" />
+    <MESSAGE value="Ajoute README et création d'une classe cartes&#10;02/01/2020 : update avec tout ce que J2rémy a fait pendant les vacances. Bug avec l'affichage du deck et l'ajout de cartes dans l'arraylist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajoute README et création d'une classe cartes&#10;02/01/2020 : update avec tout ce que J2rémy a fait pendant les vacances. Bug avec l'affichage du deck et l'ajout de cartes dans l'arraylist" />
   </component>
 </project>
