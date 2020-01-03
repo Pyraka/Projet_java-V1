@@ -1,9 +1,20 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
 public class Joueur {
 
-    private int nbrJoueur;
+    private static int nbrJoueur;
 
-    public int getNbrJoueur() {
+    public static int getNbrJoueur() {
         return nbrJoueur;
+    }
+
+    public static void setNbrJoueur(){
+        Scanner clavier = new Scanner(System.in);
+        System.out.println ("Combien de joueur vont jouer ?");
+        nbrJoueur = clavier.nextInt ();
     }
 
     private int nbrJoyaux;
@@ -21,15 +32,48 @@ public class Joueur {
         return 0;
     }
 
-    enum tortues{
-        tortueBleu, tortueRouge, tortueVerte, tortueRose
+    enum couleurs{
+        tortueVerte, tortueBleue
     }
 
-    private int[] positionTortue;
-    public void initialisationTortue (){
-        Plateau.initialisation ();
-        positionTortue[0] = 0; // on prend comme position initiale 1 en ligne pour désigner la premiere ligne
-        positionTortue[1] = 7; // de meme pour la colonne, la 7e position veut dire la 8e colonne
+    private static String tortue;
+
+    public static String getTortue(){
+        return tortue;
     }
 
+    public static void setTortue (){
+        List<String> tortues = new ArrayList<> (4);
+        if(nbrJoueur == 2){
+            tortues.add("tortueRouge");
+            tortues.add("tortueVerte");
+        }
+        if(nbrJoueur == 3){
+            tortues.add("tortueRouge");
+            tortues.add("tortueVerte");
+            tortues.add("tortueBleue");
+        }
+        if(nbrJoueur == 4){
+            tortues.add("tortueRouge");
+            tortues.add("tortueVerte");
+            tortues.add("tortueBleue");
+            tortues.add("tortueRose");
+        }
+    }
+
+    private static String orientationTortue;
+
+    public static String getOrientationTortue(){
+        return orientationTortue;
+    }
+
+    public static void setOrientationTortue(){
+        orientationTortue = "nord";
+    }
+
+    private static char[][] positionTortue;
+
+    public static char[][] getPositionTortue(){
+        return positionTortue;
+    }
 }

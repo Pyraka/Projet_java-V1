@@ -8,7 +8,7 @@ public class Carte {
 
 
     public static int setCartePioche(){
-        Scanner clavier = new Scanner(System.in);
+        /*Scanner clavier = new Scanner(System.in);
         System.out.println ("Combien de carte voulez-vous piocher ?");
         cartePioche = clavier.nextInt ();
         switch (cartePioche){
@@ -21,6 +21,9 @@ public class Carte {
         }
         System.out.println ("vous avez choisi de piocher " + cartePioche + " cartes");
         return cartePioche;
+
+         */
+        return 5 - hand.size ();
     }
 
     enum carteCouleur{
@@ -67,14 +70,17 @@ public class Carte {
     }
 
     private void moveForward(){
-        //tortue avance
+        if(Joueur.getOrientationTortue () == "nord") {
+            Joueur.getPositionTortue ();
+            //Joueur.getPositionTortue ()[0] += 1;
+        }
     }
 
-    private void moveLeft(){
+    private void seeLeft(){
         //tortue à gauche
     }
 
-    private void moveRight(){
+    private void seeRight(){
         //tortue à droite
     }
 
@@ -87,3 +93,6 @@ public class Carte {
     }
 
 }
+
+
+// selectionner les cartes à défausser et cbn de cartes

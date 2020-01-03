@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="205e04b6-3c2c-4cb7-b92b-d6a654f5729d" name="Default Changelist" comment="Ajoute README et création d'une classe cartes&#10;02/01/2020 : update avec tout ce que J2rémy a fait pendant les vacances. Bug avec l'affichage du deck et l'ajout de cartes dans l'arraylist">
+    <list default="true" id="205e04b6-3c2c-4cb7-b92b-d6a654f5729d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +107,7 @@
       <workItem from="1577149680358" duration="5266000" />
       <workItem from="1577972058846" duration="615000" />
       <workItem from="1577973118793" duration="664000" />
+      <workItem from="1577974528252" duration="868000" />
     </task>
     <task id="LOCAL-00001" summary="Ajoute README et création d'une classe cartes">
       <created>1575046441162</created>
@@ -129,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577972313725</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ajoute README et création d'une classe cartes&#10;02/01/2020 : update avec tout ce que J2rémy a fait pendant les vacances. Bug avec l'affichage du deck et l'ajout de cartes dans l'arraylist">
+      <created>1577974680720</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577974680720</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,13 +162,17 @@
     <option name="LAST_COMMIT_MESSAGE" value="Ajoute README et création d'une classe cartes&#10;02/01/2020 : update avec tout ce que J2rémy a fait pendant les vacances. Bug avec l'affichage du deck et l'ajout de cartes dans l'arraylist" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1577974591795">
+    <state x="81" y="0" key="CommitChangelistDialog2" timestamp="1578049698414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577974591795" />
-    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577974636066">
+    <state x="81" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1578049698414" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1577974690688">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1577974636066" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577974690688" />
+    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578049621907">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1578049621907" />
   </component>
 </project>
