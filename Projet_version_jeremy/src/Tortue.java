@@ -2,9 +2,9 @@ public class Tortue {
 
     private String tortueCouleur;
     private char orientationTortue;
-    private Cases uneCase;
+    private Case uneCase;
 
-    public Tortue (String tortueCouleur, Cases uneCase, char orientationTortue) {
+    public Tortue (String tortueCouleur, Case uneCase, char orientationTortue) {
         this.uneCase = uneCase;
         this.tortueCouleur = tortueCouleur;
         this.orientationTortue = orientationTortue;
@@ -14,7 +14,7 @@ public class Tortue {
         return this.tortueCouleur;
     }
 
-    public Cases getUneCase () {
+    public Case getUneCase () {
         return this.uneCase;
     }
 

@@ -14,10 +14,10 @@ public class Joueur {
     //private ArrayList<Carte> cimetiere = new ArrayList<> ();
 
     public Joueur (Tortue tortue, ArrayList<Carte> hand, ArrayList<Carte> deck, ArrayList<Carte> blocsList, ArrayList<Carte> currentAlgorithm) {
-        this.blocsList = blocsList;
         this.deck = deck;
         this.hand = hand;
         this.tortue = tortue;
+        this.blocsList = blocsList;
         this.currentAlgorithm = currentAlgorithm;
     }
 
@@ -39,7 +39,7 @@ public class Joueur {
         return this.hand;
     }
 
-    public ArrayList<Carte> getBlocsList(){ return this.hand;}
+    public ArrayList<Carte> getBlocsList(){ return this.blocsList;}
 
     public void setTortue (Tortue tortue) {
         this.tortue = tortue;
@@ -260,6 +260,21 @@ public class Joueur {
                 break;
         }
         return this.hand;
+    }
+
+    public void poseBloc(){
+        System.out.println ("Quel type de bloc voulez vous poser ? Repondre pierre ou glace");
+        Scanner sc = new Scanner (System.in);
+        String choixBloc = sc.nextLine ();
+        System.out.println ("Où voulez-vous placer votre bloc? Indiquer X puis entrée puis Y puis entrée");
+        int coordX = sc.nextInt ();
+        int coordY = sc.nextInt ();
+        if (choixBloc.equals ("pierre")) {
+            Case cases = new Case (coordX,coordY,true,"pierre");
+        }
+        else if(choixBloc.equals ("glace")){
+            Case cases = new Case(coordX,coordY,true,"glace");
+        }
     }
 
 }
