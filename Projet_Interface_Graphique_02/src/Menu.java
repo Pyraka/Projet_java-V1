@@ -53,7 +53,7 @@ public class Menu implements ActionListener {
 
         ///* AJOUT PANELS *///
         imagePanel.setPreferredSize(new Dimension(400,150));
-        imagePanel.setBackground(Color.LIGHT_GRAY);
+        //imagePanel.setBackground(Color.LIGHT_GRAY);
 
         try {
             logoImage = ImageIO.read(new File("logo.png"));
@@ -69,8 +69,11 @@ public class Menu implements ActionListener {
 
         ///* AJOUT BOUTONS *///
         buttonsPanel.setBackground(Color.GREEN);
+
+        button2.setContentAreaFilled(false);
         buttonsPanel.add(button2);
         buttonsPanel.add(button3);
+
         buttonsPanel.add(button4);
         menuPanel.add(buttonsPanel);
 
