@@ -1,10 +1,13 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.spi.AbstractResourceBundleProvider;
 
 public class Game {
     private List<Joueur> listDeJoueurs;
     private List<Joyau> listDeJoyau;
+    private List<Case> listDeCases;
     private int nbJoueur; // permet de determiner le plateau en fonction du nombre de joueur
     private int nbJoyau;
 
@@ -12,30 +15,28 @@ public class Game {
         Scanner clavier = new Scanner (System.in);
         System.out.println ("Combien de joueur vont jouer ?");
         this.nbJoueur = clavier.nextInt ();
+
         this.listDeJoueurs = createPlayer (); //initialisation du nombre de joueur
         this.listDeJoyau = createJoyau ();
         setNbJoyau ();
 
 
-        InitialisationPlateau plateau = new InitialisationPlateau (); //initialise plateau
+        Plateau plateau = new Plateau (new Case(0,0,false," _______ ")); //initialise plateau
         plateau.initialisationPlateau (nbJoueur);
+        System.out.println (plateau.getNiemeCase ());
         plateau.display (); //affiche le plateau
+        //prendre en compte tous les joueurs
 
-        //affichage du plateau en fonction du nombre de joueurs choisi
-
-
-        //Algorithme du jeu
-// faire un set pour que on puisse cpmpléter l'alogirthme et que ce soit retenu qq part : fait
-        for (int niemeJoueur = 0; niemeJoueur < this.nbJoueur; niemeJoueur++) {//prendre en compte tous les joueurs
-            for (int niemeJoyau = 0; niemeJoyau < this.nbJoyau; nbJoyau++) { // prendre en compte tous les joyaux
-                while (listDeJoueurs.get (niemeJoueur).getTortue ().getUneCase ().getX () != listDeJoyau.get (niemeJoyau).getCases ().getX ()
-                        && listDeJoueurs.get (niemeJoueur).getTortue ().getUneCase ().getY () != listDeJoyau.get (niemeJoyau).getCases ().getY ())  { // égalité permettant à un joueur de gagner
-                    System.out.println ("C'est à vous de jouer, joueur" + (niemeJoueur + 1));
-                    System.out.println (" ");
+        for (int niemeJoyau = 0; niemeJoyau < this.nbJoyau; nbJoyau++) {         // prendre en compte tous les joyaux
+            for (int niemeJoueur = 0; niemeJoueur < this.nbJoueur; niemeJoueur++) {
+                if (listDeJoueurs.size () > 1) {
+                    // égalité permettant à un joueur de gagner
+                    System.out.println ("C'est à vous de jouer, Joueur" + (niemeJoueur + 1)+"\n");
                     System.out.println ("Si vous voulez compléter le programme, taper 1");
                     System.out.println ("Si vous voulez construire un mûr, taper 2");
                     System.out.println ("Si vous voulez exécuter le programme, taper 3\n");
                     int choix = clavier.nextInt ();
+
 
                     switch (choix) {
                         case 1:
@@ -46,9 +47,8 @@ public class Game {
                             }
                             System.out.println (" ");
                             this.listDeJoueurs.get (niemeJoueur).completeAlgorithm ();
-                            this.listDeJoueurs.get (niemeJoueur).setDefausseCarte ();
-                            this.listDeJoueurs.get (niemeJoueur).setHand (this.listDeJoueurs.get (niemeJoueur).getHand ()); // permet de mettre en mémoire la main du joueur
                             this.listDeJoueurs.get (niemeJoueur).setCurrentAlgorithm (this.listDeJoueurs.get (niemeJoueur).getCurrentAlgorithm ());
+
                             break;
                         case 2:
                             int nbreBloc = 5;
@@ -60,10 +60,9 @@ public class Game {
                             nbreBloc = nbreBloc - 1; // on vient de poser un bloc donc la liste de cartes de bloc est réduite de 1*/
                             break;
                         case 3:
-                            System.out.println (this.listDeJoueurs.get (0).getTortue ().getUneCase ().getX ());
-                            System.out.println (this.listDeJoueurs.get (0).getTortue ().getOrientationTortue ());
-                            System.out.println (this.listDeJoueurs.get (0).getTortue ().getUneCase ().getY () + "\n");
                             for (int niemeCarte = 0; niemeCarte < this.listDeJoueurs.get (niemeJoueur).getCurrentAlgorithm ().size (); niemeCarte++) {
+                                System.out.println ("L'algorithme du joueur" + (niemeJoueur + 1) + " est:");
+                                System.out.println (listDeJoueurs.get (niemeJoueur).getCurrentAlgorithm ().get (niemeCarte).getColor ());
                                 if (this.listDeJoueurs.get (niemeJoueur).getCurrentAlgorithm ().get (niemeCarte).getColor ().equals ("bleue")) {
                                     this.listDeJoueurs.get (niemeJoueur).getTortue ().avance ();
                                 } else if (this.listDeJoueurs.get (niemeJoueur).getCurrentAlgorithm ().get (niemeCarte).getColor ().equals ("jaune")) {
@@ -71,8 +70,10 @@ public class Game {
                                 } else if (this.listDeJoueurs.get (niemeJoueur).getCurrentAlgorithm ().get (niemeCarte).getColor ().equals ("violette")) {
                                     this.listDeJoueurs.get (niemeJoueur).getTortue ().tourneDroite ();
                                 } else if (this.listDeJoueurs.get (niemeJoueur).getCurrentAlgorithm ().get (niemeCarte).getColor ().equals ("laser")) {
-                                    System.out.println ("fonction pas encore disponible désolé");
                                 }
+                                System.out.println ("Les nouvelles coord en x de la tortue sont (" + this.listDeJoueurs.get (niemeJoueur).getTortue ().getUneCase ().getX () + " , "
+                                        + this.listDeJoueurs.get (niemeJoueur).getTortue ().getUneCase ().getY () + (")"));
+                                System.out.println ("La nouvelle orientation de la tortue est: " + this.listDeJoueurs.get (niemeJoueur).getTortue ().getOrientationTortue () + "\n");
 
                                 // affichage des cartes de l'algo caché
 
@@ -81,20 +82,24 @@ public class Game {
                             System.out.println (listDeJoueurs.get (niemeJoueur).getCurrentAlgorithm ().get (niemeCarte ).getColor ());
                         }
                         System.out.println (" ");*/
+                                System.out.println ("Voici les coord de la case du joyau (" + listDeJoyau.get (niemeJoyau).getCases ().getX () + " , " + listDeJoyau.get (niemeJoyau).getCases ().getY () + ")");
+                                System.out.println ("Les nouvelles coord de la tortue sont (" + this.listDeJoueurs.get (niemeJoueur).getTortue ().getUneCase ().getX () + " , "
+                                        + this.listDeJoueurs.get (niemeJoueur).getTortue ().getUneCase ().getY () + (")"));
+                                System.out.println ("La nouvelle orientation de la tortue est: " + this.listDeJoueurs.get (niemeJoueur).getTortue ().getOrientationTortue () + "\n");
 
-                            }
-                            //Permet l'affichage de la position finale et de son orientation
+                                if (listDeJoueurs.get (niemeJoueur).getTortue ().getUneCase ().getX () == listDeJoyau.get (niemeJoyau).getCases ().getX ()
+                                        && listDeJoueurs.get (niemeJoueur).getTortue ().getUneCase ().getY () == listDeJoyau.get (niemeJoyau).getCases ().getY ()) {
+                                    listDeJoueurs.remove (niemeJoueur);
+                                    System.out.println ("La partie est finie");
+                                }
+
+                                //Permet l'affichage de la position finale et de son orientation
                         /*System.out.println (listDeJoueurs.get (0).getTortue ().getUneCase ().getX ());
                         System.out.println (listDeJoueurs.get (0).getTortue ().getOrientationTortue ());
                         System.out.println (listDeJoueurs.get (0).getTortue ().getUneCase ().getY () + "\n");*/
-                            break;
-                    }
-                }
-            }
-        }
-
-
-        //permet d'afficher toutes les cartes de tous les joueurs
+                            }
+                            this.listDeJoueurs.get (niemeJoueur).clearAlgorithm ();
+                            //permet d'afficher toutes les cartes de tous les joueurs
 /*
         for (int i=0;i<nbJoueur;i++) {
             System.out.println (" ");
@@ -106,14 +111,22 @@ public class Game {
         }
 
  */
+
+                    }
+                    this.listDeJoueurs.get (niemeJoueur).setDefausseCarte ();
+                    this.listDeJoueurs.get (niemeJoueur).setHand (this.listDeJoueurs.get (niemeJoueur).getHand ()); // permet de mettre en mémoire la main du joueur
+                /*} else {
+                    System.out.println ("Fin de la partie");*/
+                }
+            }
+        }
     }
 
     public ArrayList<Joueur> createPlayer () {
-        ArrayList<Joueur> listDeJoueur = new ArrayList<Joueur> ();
-        ArrayList<Joyau> listDeJoyau = new ArrayList<> ();
+        ArrayList<Joueur> listDeJoueur = new ArrayList<> ();
         switch (this.nbJoueur) {
             case 2:
-                Joueur joueur1 = new Joueur (new Tortue ("tortueRouge", new Case (0, 1, true, "tortueRouge"), 'S'), null, null, null, null);
+                Joueur joueur1 = new Joueur (new Tortue ("tortueRouge", new Case (1, 0, true, "tortueRouge"), 'S'), null, null, null, null);
                 joueur1.initialisationDeck ();
                 joueur1.initialisationHand ();
                 joueur1.initialisationBlockList ();
@@ -123,6 +136,7 @@ public class Game {
                 joueur2.initialisationBlockList ();
                 listDeJoueur.add (joueur1);
                 listDeJoueur.add (joueur2);
+                break;
             case 3:
                 Joueur J1 = new Joueur (new Tortue ("tortueRouge", new Case (0, 0, true, "tortueRouge"), 'S'), null, null, null, null);
 
@@ -140,6 +154,7 @@ public class Game {
                 listDeJoueur.add (J1);
                 listDeJoueur.add (J2);
                 listDeJoueur.add (J3);
+                break;
 
             case 4:
                 Joueur player1 = new Joueur (new Tortue ("tortueRouge", new Case (0, 0, true, "tortueRouge"), 'S'), null, null, null, null);
@@ -164,33 +179,42 @@ public class Game {
                 listDeJoueur.add (player2);
                 listDeJoueur.add (player3);
                 listDeJoueur.add (player4);
+                break;
 
         }
         return listDeJoueur;
     }
 
-    public ArrayList<Joyau> createJoyau(){
+    public ArrayList<Joyau> createJoyau () {
         ArrayList<Joyau> listDeJoyau = new ArrayList<> ();
-        switch (nbJoueur){
+        switch (nbJoueur) {
             case 2:
-                Joyau joyauVert = new Joyau (new Case (7, 3, true, "joyauVert"));
+                Joyau joyauVert = new Joyau (new Case (3, 7, true, "joyauVert"));
                 listDeJoyau.add (joyauVert);
                 break;
             case 3:
-                Joyau joyauR = new Joyau (new Case (7, 0, true, "joyauRose"));
-                Joyau joyauV = new Joyau (new Case (7, 3, true, "joyauVert"));
-                Joyau joyauB = new Joyau (new Case (7, 6, true, "joyauBleu"));
+                Joyau joyauR = new Joyau (new Case (0, 7, true, "joyauRose"));
+                Joyau joyauV = new Joyau (new Case (3, 7, true, "joyauVert"));
+                Joyau joyauB = new Joyau (new Case (6, 7, true, "joyauBleu"));
                 listDeJoyau.add (joyauB);
                 listDeJoyau.add (joyauR);
                 listDeJoyau.add (joyauV);
                 break;
             case 4:
-                Joyau joyauRose = new Joyau (new Case (7, 1, true, "joyauRose"));
-                Joyau joyauBleu = new Joyau (new Case (7, 6, true, "joyauBleu"));
+                Joyau joyauRose = new Joyau (new Case (1, 7, true, "joyauRose"));
+                Joyau joyauBleu = new Joyau (new Case (6, 7, true, "joyauBleu"));
                 listDeJoyau.add (joyauRose);
                 listDeJoyau.add (joyauBleu);
                 break;
         }
+        return listDeJoyau;
+    }
+
+    public int getNbJoueur () {
+        return nbJoueur;
+    }
+
+    public List<Joyau> getListDeJoyau () {
         return listDeJoyau;
     }
 
@@ -211,6 +235,6 @@ public class Game {
                 break;
         }
     }
-
 }
+
 

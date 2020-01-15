@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Case {
 
     private int x;
@@ -36,6 +38,7 @@ public class Case {
         this.y = y;
     }
 
+
     public void setUsed (boolean used) {
         isUsed = used;
     }
@@ -43,4 +46,12 @@ public class Case {
     public void setSee (String see) {
         this.see = see;
     }
+
+    public void casePleine(){
+        if (this.isUsed == false){
+            this.see = " ____ ";
+        }
+    }
+
+
 }

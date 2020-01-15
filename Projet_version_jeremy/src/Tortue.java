@@ -26,12 +26,17 @@ public class Tortue {
         return this.orientationTortue;
     }
 
+    public void setOrientationTortue (char orientationTortue) {
+        this.orientationTortue = orientationTortue;
+    }
+
     public void initialisationOrientationTortue () {
         this.orientationTortue = 'S'; // l'orientation de la tortue est sud par défaut
     }
 
     public void avance () {
-        switch (this.orientationTortue) {
+        //if (this.uneCase.getUsed ()==true){
+            switch (this.orientationTortue) {
             case 'S':
                 this.uneCase.setY (this.uneCase.getY () + 1);
                 break;
@@ -50,16 +55,16 @@ public class Tortue {
     public void tourneGauche () {
         switch (this.orientationTortue) {
             case 'S':
-                this.orientationTortue = 'E';
+                this.setOrientationTortue ('E');
                 break;
             case 'E':
-                this.orientationTortue = 'N';
+                this.setOrientationTortue ( 'N');
                 break;
             case 'N':
-                this.orientationTortue = 'O';
+                this.setOrientationTortue ('O');
                 break;
             case 'O':
-                this.orientationTortue = 'S';
+                this.setOrientationTortue ('S');
                 break;
         }
     }
@@ -67,19 +72,24 @@ public class Tortue {
     public void tourneDroite () {
         switch (this.orientationTortue) {
             case 'S':
-                this.orientationTortue = 'O';
+                this.setOrientationTortue ('O');
                 break;
             case 'O':
-                this.orientationTortue = 'N';
+                this.setOrientationTortue ('N');
                 break;
             case 'N':
-                this.orientationTortue = 'E';
+                this.setOrientationTortue ('E');
                 break;
             case 'E':
-                this.orientationTortue = 'S';
+                this.setOrientationTortue ('S');
                 break;
         }
     }
 
+    public void tortueBloque(){
+        if (this.uneCase.getUsed ()==true){
+
+        }
+    }
 }
 

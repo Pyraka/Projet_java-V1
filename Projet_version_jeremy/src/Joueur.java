@@ -277,4 +277,8 @@ public class Joueur {
         }
     }
 
+    public void clearAlgorithm(){
+        this.currentAlgorithm.clear ();
+    }
+
 }
