@@ -27,7 +27,7 @@ public class Jeu {
                 if(!plateau.getJoueurPlateau (listJoueurs.get (niemeJoueur)).equals (".")) {
                     System.out.println ("C'est à vous de jouer, Joueur" + (niemeJoueur + 1) + "\n"
                             + "(1) Si vous voulez compléter le programme\n"
-                            + "(2) Si vous voulez construire un mûr\n"
+                            + "(2) Si vous voulez construire un mur\n"
                             + "(3) Si vous voulez exécuter le programme, taper 3\n");
                     int choix = clavier.nextInt ();
 
